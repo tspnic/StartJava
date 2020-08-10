@@ -2,41 +2,40 @@ package com.startjava.lesson4.calculator;
 
 class Calculator {
 
-    private String[] tokens;
-    private String expression;
-    private int pos;
+    private String[] splitExpression;
+    private int result;
 
     public Calculator(String expression) {
-        this.tokens = expression.split(" ");
+        this.splitExpression = expression.split(" ");
     }
 
     public int calculate() {
-        int first = Integer.parseInt(tokens[0]);
-        char operation = tokens[1].charAt(0);
-        int second = Integer.parseInt(tokens[2]);
+        int num1 = Integer.parseInt(splitExpression[0]);
+        char operation = splitExpression[1].charAt(0);
+        int num2 = Integer.parseInt(splitExpression[2]);
 
         switch (operation) {
             case '+':
-                System.out.println((int) Math.addExact(first, second));
+                result = (int) Math.addExact(num1, num2);
                 break;
             case '-':
-                System.out.println((int) Math.subtractExact(first, second));
+                result = (int) Math.subtractExact(num1, num2);
                 break;
             case '*':
-                System.out.println((int) Math.multiplyExact(first, second));
+                result = (int) Math.multiplyExact(num1, num2);
                 break;
             case '/':
-                System.out.println(first / second);
+                result = num1 / num2;
                 break;
             case '%':
-                System.out.println(first % second);
+                result = num1 % num2;
                 break;
             case '^':
-                System.out.println((int) Math.pow(first, second));
+                result = (int) Math.pow(num1, num2);
                 break;
             default:
                 System.out.println("Error");
         }
-        return operation;
+        return result;
     }
 }

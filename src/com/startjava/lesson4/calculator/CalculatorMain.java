@@ -10,11 +10,10 @@ public class CalculatorMain {
         String expression;
 
         while (answer.equals("Yes")) {
-
             System.out.print("Enter math expression in 2 + 2 format with spaces between characters  ");
             expression = scan.nextLine();
             Calculator calc = new Calculator(expression);
-            calc.calculate();
+            System.out.println(calc.calculate());
             do {
                 System.out.print("Want to continue? [Yes/No]:  ");
                 answer = scan.nextLine();

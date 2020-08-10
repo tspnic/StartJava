@@ -1,25 +1,31 @@
 package com.startjava.lesson4.game;
 
+import java.util.Arrays;
+
 public class Player {
 
     private String name;
-    private int number;
-    int pos = -1;
+    private int[] numbers = new int[10];
+    private int attempt = 0;
 
-	public Player(String name) {
-	    this.name = name;
+    public Player(String name) {
+        this.name = name;
     }
 
     public String getName() {
-	    return name;
+        return name;
     }
 
-    public int setNumber(int number) {
-        this.number = number;
-        return number;
+    public void setNumber(int number) {
+        numbers[attempt] = number;
+        attempt++;
     }
 
     public int getNumber() {
-	    return number;
+        return numbers[attempt - 1];
+    }
+
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, numbers.length - (numbers.length - attempt));
     }
 }
